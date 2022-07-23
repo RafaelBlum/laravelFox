@@ -1,0 +1,18 @@
+
+.bg-light i{
+    position: relative;
+    color: rgba(38, 131, 213, 0.78);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.bg-form{
+    width: 100%;
+    margin: 100px 0 140px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bg-form .btn{
+    margin-top: 60px;
+}

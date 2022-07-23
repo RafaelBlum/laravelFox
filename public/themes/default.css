@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+
+/* =========================================================================================================== */
+/*             DEFAULT                                                                                         */
+/* =========================================================================================================== */
+:root{
+    --active: #0c5460;
+    --background-white: #e8e4e1;
+    --back-brandcrump: #e2e8f0;
+    --background-cover: url('../images/background-cover.jpg');
+
+    --font-white: #d6d6d6;
+    --font-normal: rgba(0, 0, 0, 0.72);
+    --font-style: 'Quicksand', sans-serif;
+}
+
+*{
+    font-style: normal;
+    font-family: var(--font-style);
+}
+
+
+
+
+
+/* =========================================================================================================== */
+/*             NAVBAR                                                                                          */
+/* =========================================================================================================== */
+.logo-site{
+    display: flex;
+    align-items: center;
+}
+
+.logo-site h1{
+    font-family: 'Dancing Script';
+    text-shadow: 4px 5px 5px #4a5568;
+}
+
+.logo-site img{
+    width: 5rem;
+}
+
+/* =========================================================================================================== */
+/*             BREADCRUMP                                                                                         */
+/* =========================================================================================================== */
+.breadcrumb{
+    padding: 6px;
+    border-radius: 4px;
+    background: var(--back-brandcrump);
+}
+
+.breadcrumb-item.active{
+    color: var(--active);
+}
+
+
+/* =========================================================================================================== */
+/*             FOOTER                                                                                          */
+/* =========================================================================================================== */
+.pagination{
+    justify-content: center;
+}
+

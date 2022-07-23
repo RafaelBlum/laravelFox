@@ -1,0 +1,63 @@
+/* =========================================================================================================== */
+/*             COVER                                                                                           */
+/* =========================================================================================================== */
+a, a:focus, a:hover{
+    font-weight: 800;
+}
+
+
+html,
+body {
+    height: 100%;
+    background-image: var(--background-cover);
+    background-size: cover;
+}
+
+body {
+    color: var(--font-normal);
+    display: -ms-flexbox;
+    display: flex;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 42em;
+}
+
+
+/* =========================================================================================================== */
+/*             COVER                                                                                           */
+/* =========================================================================================================== */
+.cover {
+    padding: 0 1.5rem;
+}
+
+.cover .cover-heading{
+    font-family: 'Dancing Script';
+    font-size: 45px;
+    font-weight: 700;
+    color: var(--active);
+}
+.cover .btn {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cover .info {
+    font-family: Nunito, cursive, Arial, Verdana, "Arial Black";
+    font-size: 25px;
+    color: dodgerblue;
+}
+
+.cover .btn:active, .cover .btn:focus{
+    border: none;
+    font-weight: 700;
+}
