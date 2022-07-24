@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="bg-light p-3">
-        <form action="{{isset($user) ? route('user.update', ['user' => $user->id]) : route('user.create')}}" method="post">
+        <form action="{{isset($user) ? route('user.update', ['user' => $user->id]) : route('user.store')}}" method="post">
             @csrf
             @if(isset($user))
                 @method('PUT')

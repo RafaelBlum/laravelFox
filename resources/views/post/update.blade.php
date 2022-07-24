@@ -70,7 +70,6 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- CATEGORIA--}}
 
                         {{--COVER SELECT--}}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
@@ -90,8 +89,6 @@
                     </figure>
                 </div>
             </div>
-
-
 
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">{{isset($post) ? 'Atualizar postagem' : 'Criar nova postagem'}}</button>
