@@ -1,6 +1,11 @@
 @extends('layouts.dafault')
 
-@section('title', "Postagem")
+@section('title', isset($post) ? 'LaraFox - Editar '. $post->title : 'LaraFox - Criar notícia')
+
+@push('style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
+@endpush
 
 @section('content')
     {{-- CABEÇALHO BREADCRUMB--}}
@@ -40,7 +45,31 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3"></div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+                            {{-- CATEGORIA--}}
+                            <div class="form-group">
+                                <select id="card_id"
+                                        class="js-multiple form-control form-control-sm"
+                                        style="width: 100%;"
+                                        name="cat[]"
+                                        multiple="multiple"
+                                        placeholder="Escolha quais categorias">
+
+                                    @foreach($categorias as $categoria)
+                                        <option value="{{$categoria->id}}"
+                                                @if(isset($post))
+                                                @foreach($post->categorias as $cat)
+                                                @if($categoria->id == $cat->id)
+                                                selected="selected"
+                                                @endif
+                                                @endforeach
+                                                @endif
+                                        >{{$categoria->title}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
                         {{-- CATEGORIA--}}
 
                         {{--COVER SELECT--}}
@@ -71,12 +100,19 @@
     </div>
 
     @push('script')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
         <script>
             {{-- IMAGE PREVIEW --}}
             var loadfile = function(event){
                 var output = document.getElementById('output');
                 output.src = URL.createObjectURL(event.target.files[0]);
             }
+
+            {{-- SELECT2 TO CATEGORY --}}
+            $(document).ready(function() {
+                $('.js-multiple').select2();
+            });
         </script>
 
     @endpush

@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', 'Titulo')
+@section('title', 'LaraFox - '.$post->title)
 
 @section('content')
     <main role="main" class="container mt-5">
@@ -13,7 +13,9 @@
                             <h1 class="fw-bolder mb-1">{{$post->title}}</h1>
                             <div class="text-muted fst-italic mb-2">Postado em {{date('d/m/Y', strtotime($post->created_at))}} por <a href="{{route('user.show', ['user'=> $post->user->id])}}">{{$post->user->name}}</a>  </div>
                             {{-- CATEGORIES --}}
-                            <a class="badge bg-light text-decoration-none link-light" href="#">{{$post->tags}}</a>
+                            @foreach($post->categorias as $category)
+                                <a class="badge bg-light text-decoration-none link-light" href="#">{{$category->title}}</a>
+                            @endforeach
                             @auth
                                 <a class="badge text-success bg-light text-decoration-none" href="{{route('post.edit', ['post'=> $post])}}">Editar</a>
                                 <a class="badge text-danger bg-light text-decoration-none" href="{{route('post.delete', ['post'=> $post])}}">Deletar</a>

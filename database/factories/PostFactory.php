@@ -22,7 +22,6 @@ class PostFactory extends Factory
             'title'=> $this->faker->sentence(4, true),
             'cover'=> "capa_posts/capa_default.jpg",
             'content'=> $this->faker->paragraph(5, false),
-            'tags'=> $this->faker->word(),
             'status'=> $this->faker->boolean(12),
             'created_at' => $this->faker->dateTimeBetween('-2 years', 'now')
         ];

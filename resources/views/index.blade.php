@@ -16,8 +16,9 @@
                             <h1 class="fw-bolder mb-1"><a href="{{route('post.show', ['post'=> $last_post->id])}}">{{$last_post->title}}</a></h1>
                             <div class="text-muted fst-italic mb-2">Postado em {{date('d/m/Y', strtotime($last_post->created_at))}} por <a href="{{route('user.show', ['user'=> $last_post->user->id])}}">{{$last_post->user->name}}</a></div>
                             {{-- CATEGORIES --}}
-                            <a class="badge bg-light text-decoration-none link-light" href="#">Web Design</a>
-                            <a class="badge bg-light text-decoration-none link-light" href="#">Freebies</a>
+                            @foreach($last_post->categorias as $category)
+                                <a class="badge bg-light text-decoration-none link-light" href="#">{{$category->title}}</a>
+                            @endforeach
 {{--                            @auth--}}
                                 <a class="badge text-success bg-light text-decoration-none" href="{{route('post.edit', ['post'=> $last_post])}}">Editar</a>
                                 <a class="badge text-danger bg-light text-decoration-none" href="{{route('post.destroy', ['post'=> $last_post])}}">Deletar</a>

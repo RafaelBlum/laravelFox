@@ -14,12 +14,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id', 'ASC')->paginate(3);
-        return view('user.list', compact('users'));
+        return view('user.index', compact('users'));
     }
 
     public function create()
     {
-        return view('user.create');
+        return view('user.update');
     }
 
     public function store(Request $request)
@@ -38,7 +38,10 @@ class UserController extends Controller
             $novo->save();
             $novo->address()->save($end);
 
-            notify()->success("Usuário criado com sucesso!","","bottomRight");
+//            notify()->success("Usuário criado com sucesso!","","bottomRight");
+            toast('Usuário criado com sucesso!','success')
+                ->autoClose(5000)
+                ->position('bottom-end')->timerProgressBar();
             return redirect()->route('user.index');
         }catch(\Exception $e){
             flash('Ocorreu um erro, linha ' . $e->getFile() . " :: " . $e->getMessage())->error();
@@ -74,7 +77,10 @@ class UserController extends Controller
             $user->save();
             $user->address()->save($user->address);
 
-            notify()->success("Usuário atualizado com sucesso!","","bottomRight");
+//            notify()->success("Usuário atualizado com sucesso!","","bottomRight");
+            toast('Usuário atualizado com sucesso!','success')
+                ->autoClose(5000)
+                ->position('bottom-end')->timerProgressBar();
             return redirect()->route('user.index');
         }catch(\Exception $e){
             flash('Ocorreu um erro, linha ' . $e->getFile() . " :: " . $e->getMessage())->error();
@@ -87,7 +93,10 @@ class UserController extends Controller
         try{
             $user->load('address');
             $user->delete();
-            notify()->error("Usuário deletado com sucesso!","","topLeft");
+//            notify()->error("Usuário deletado com sucesso!","","topLeft");
+            toast('Usuário deletado com sucesso!','error')
+                ->autoClose(5000)
+                ->position('bottom-end')->timerProgressBar();
             return redirect()->route('user.index');
         }catch(\Exception $e){
             flash('Ocorreu um erro, linha ' . $e->getFile() . " :: " . $e->getMessage())->error();

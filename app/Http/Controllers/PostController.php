@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Faker\Factory;
@@ -20,7 +21,8 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('post.update');
+        $categorias = Category::all();
+        return view('post.update', compact('categorias'));
     }
 
     public function store(Request $request)
@@ -46,10 +48,18 @@ class PostController extends Controller
             }
 
             $user->posts()->save($post);
-            notify()->success("Notícia criada com sucesso!!","","bottomRight");
+
+            $categoies = Category::find($request->cat);
+            $post->categorias()->sync($categoies);
+
+//            notify()->success("Notícia criada com sucesso!!","","bottomRight");
+            toast('Notícia criada com sucesso!!','success')
+                ->autoClose(5000)
+                ->position('bottom-end')->timerProgressBar();
             return redirect()->route('post.show', compact('post'));
         }catch (\Exception $e){
-            flash('Ocorreu um erro, linha ' . $e->getFile() . " :: " . $e->getMessage())->error();
+            dd('Ocorreu um erro, linha ' .$e->getLine() . " :: " . $e->getMessage());
+            flash('Ocorreu um erro, linha ' . $e->getLine() . " :: " . $e->getMessage())->error();
             return redirect()->back();
         }
     }
@@ -61,7 +71,8 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('post.update', compact('post'));
+        $categorias = Category::all();
+        return view('post.update', compact('post', 'categorias'));
     }
 
     public function update(Request $request, Post $post)
@@ -85,7 +96,13 @@ class PostController extends Controller
 
             $post->save();
 
-            notify()->success("Notícia atualizada com sucesso!","","bottomRight");
+            $categoies = Category::find($request->cat);
+            $post->categorias()->sync($categoies);
+
+//            notify()->success("Notícia atualizada com sucesso!","","bottomRight");
+            toast('Notícia atualizada com sucesso!','success')
+                ->autoClose(5000)
+                ->position('bottom-end')->timerProgressBar();
             return redirect()->route('post.show', compact('post'));
         }catch (\Exception $e){
             flash('Ocorreu um erro, linha ' . $e->getFile() . " :: " . $e->getMessage())->error();

@@ -38,7 +38,7 @@
     @include('vendor.lara-izitoast.toast')
     <script>
         {{-- ALERT MENSAGEM SISTEM --}}
-        $('div.alert').not('.alert-error').delay(3000).fadeOut(550);
+        $('div.alert').not('.alert-error').delay(10000).fadeOut(550);
     </script>
     @stack('script')
 </body>

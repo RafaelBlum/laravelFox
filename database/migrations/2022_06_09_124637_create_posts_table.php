@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('cover')->default('capa_posts/capa_default.jpg');
-            $table->string('tags', 100)->nullable();
             $table->smallInteger('status')->nullable();
             $table->timestamps();
         });
@@ -38,6 +37,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
-        Schema::dropIfExists('categoria_post');
     }
 };
