@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-xs-12 about-company">
-                <img src="{{asset('themes/images/config/studio.png')}}" alt="fox_logo" width="190">
+                <img src="{{asset('themes/images/config/studio2.png')}}" alt="fox_logo" width="190">
                 <p class="pr-5 text-white-50">{{CONF_DESCRIPTION}}</p>
                 <p>
                     <a href="#"><i class="ti-facebook"> </i></a>
