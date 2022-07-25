@@ -1,4 +1,10 @@
 # Projeto LaraFox
+
+<p align="center">
+<a href="#" target="_blank">
+    <img src="images/studio.png" width="480">
+</a></p>
+
 <p align="center">
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
