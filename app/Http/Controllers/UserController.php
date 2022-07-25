@@ -91,7 +91,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try{
-            $user->load('address');
+            $user->load('address', 'posts');
             $user->delete();
 //            notify()->error("Usuário deletado com sucesso!","","topLeft");
             toast('Usuário deletado com sucesso!','error')

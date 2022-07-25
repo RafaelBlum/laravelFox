@@ -1,18 +1,16 @@
 .main-nav {
-    background: #343a40!important;
+    background: #152F4F !important;
     z-index: 1;
+    height: 90px;
 }
 
 .main-nav .navbar-brand {
     padding: 0;
 }
 
-.main-nav .navbar-brand h1{
-
-}
-
 .main-nav .navbar-brand img{
-    width: 45px;
+    width: 220px;
+    filter: brightness(120%);
 }
 
 .main-nav .navbar-nav .nav-item {
@@ -26,10 +24,14 @@
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 600;
-    color: #000;
+    color: #fffdfe;
     padding-left: 20px;
     padding-right: 20px;
     line-height: 45px;
+}
+
+.main-nav .navbar-nav .nav-item .nav-link .drop{
+    color: #0b2e13;
 }
 
 @media (max-width: 992px) {

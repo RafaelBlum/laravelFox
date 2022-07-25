@@ -17,7 +17,7 @@
     <!-- ===================== # NAVBAR # ===================== -->
     <div class="container w-100 h-100 p-3 mx-auto">
         <main role="main" class="cover">
-            <h1 class="cover-heading">{{CONF_SITE_NAME}}</h1>
+            <img src="{{asset('themes/images/config/studio.png')}}" alt="studio laravel" width="240">
             <p class="lead">{{CONF_DESCRIPTION}}</p>
             <p class="lead">
                 <a href="{{route('home')}}" class="btn info">Entrar</a>

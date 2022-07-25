@@ -5,14 +5,10 @@
 @section('content')
     <main role="main">
 
-        <section class="jumbotron text-center">
+        <section class="jumbotron text-center jumbo-background">
             <div class="container">
                 <h1 class="jumbotron-heading">Lista de notícias</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-                <p>
-                    <a href="{{route('post.create')}}" class="btn btn-primary my-2">Criar notícia</a>
-                    <a href="{{route('user.create')}}" class="btn btn-secondary my-2">Criar usuário</a>
-                </p>
+                <p class="lead">{{Str::limit(CONF_DESCRIPTION, 181)}}</p>
             </div>
         </section>
 

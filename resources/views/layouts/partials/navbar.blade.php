@@ -3,8 +3,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{route('home')}}">
-            <img src="{{asset('themes/images/config/fox.png')}}" alt="fox_logo">
-            <code>LaraFox</code>
+            <img src="{{asset('themes/images/config/studio.png')}}" alt="fox_logo">
         </a>
 
 
@@ -22,19 +21,19 @@
                 <li class="nav-item {{Route::current()->getName() === 'user.index' ? 'active' : ''}}">
                     <a class="nav-link" href="{{route('user.index')}}">Usuários</a>
                 </li>
-                <li class="nav-item dropdown @@pages">
+                <li class="nav-item dropdown sub-item">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Restrito
                         <span><i class="ti-angle-down"></i></span>
                     </a>
                     <!-- Dropdown list -->
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu drop">
                         @auth
                             <li class="nav-item @@contact {{Route::current()->getName() === 'admin' ? 'active':''}}">
                                 <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
                             </li>
                         @else
-                            <li class="nav-item @@contact {{Route::current()->getName() === 'login' ? 'active' : ''}}">
-                                <a href="#" class="nav-link">Login</a>
+                            <li class="nav-item {{Route::current()->getName() === 'login' ? 'active' : ''}}">
+                                <a href="#" class="nav-link" style="color: #0b2e13;">Login</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item @@contact">
