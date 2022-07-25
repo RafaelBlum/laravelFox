@@ -1,4 +1,4 @@
-# Projeto LaraFox
+# Projeto Studio Laravel
 
 <p align="center">
 <a href="#" target="_blank">
@@ -38,7 +38,7 @@ A idéia é no decorrer do desenvolvimento proposto, podermos propor melhorias, 
 ##### O diagramas de arquitetura de software oferecem a toda a equipe de desenvolvimento um panorama visual, facilitando a comunicação de ideias e conceitos-chave em termos que todos entendem.
 <p align="center">
 <a href="#" target="_blank">
-    <img src="diagram-v1.jpg" width="480">
+    <img src="images/diagram-v1.jpg" width="480">
 </a></p>
 
 <br>
