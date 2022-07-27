@@ -36,7 +36,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
                                 <label class="text-black-50 font-weight-bold text-md-left" for="conteudo">Descrições</label>
-                                <textarea class="form-control summer" id="conteudo" name="description" required="required">{{isset($category) ? $category->description : ''}}</textarea>
+                                <textarea class="form-control summer" maxlength="255" minlength="10" id="conteudo" name="description" required="required">{{isset($category) ? $category->description : ''}}</textarea>
                             </div>
                         </div>
 

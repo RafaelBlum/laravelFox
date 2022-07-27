@@ -18,6 +18,9 @@
                 <li class="nav-item {{Route::current()->getName() === 'post.index' ? 'active' : ''}}">
                     <a class="nav-link" href="{{route('post.index')}}">Notícias</a>
                 </li>
+                <li class="nav-item {{Route::current()->getName() === 'category.index' ? 'active' : ''}}">
+                    <a class="nav-link" href="{{route('category.index')}}">Categoria</a>
+                </li>
                 <li class="nav-item {{Route::current()->getName() === 'user.index' ? 'active' : ''}}">
                     <a class="nav-link" href="{{route('user.index')}}">Usuários</a>
                 </li>
@@ -26,7 +29,7 @@
                         <span><i class="ti-angle-down"></i></span>
                     </a>
                     <!-- Dropdown list -->
-                    <ul class="dropdown-menu drop">
+                    <ul class="dropdown-menu">
                         @auth
                             <li class="nav-item @@contact {{Route::current()->getName() === 'admin' ? 'active':''}}">
                                 <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
@@ -43,10 +46,10 @@
                         @endauth
 
                         <li class="dropdown dropdown-submenu dropleft">
-                            <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
+                            <a class="dropdown-item dropdown-toggle" href="#" id="dropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdown0501">
+                            <ul class="dropdown-menu" aria-labelledby="dropdown">
                                 <li><a class="dropdown-item" href="{{route('post.create')}}">Criar notícias</a></li>
                                 <li><a class="dropdown-item" href="{{route('user.create')}}">Criar usuários</a></li>
                                 <li><a class="dropdown-item" href="{{route('category.create')}}">Criar categoria</a></li>

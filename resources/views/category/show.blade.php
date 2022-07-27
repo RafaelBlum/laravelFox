@@ -29,7 +29,7 @@
 
         <section class="text-center album">
             <div class="container">
-                <h5 class="jumbotron-heading">Postagens</h5>
+                <h5 class="jumbotron-heading">Postagens relacionadas</h5>
 
                 @if($category->posts->count() > 0)
                     <div class="row">

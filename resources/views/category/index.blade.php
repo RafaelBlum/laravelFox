@@ -11,7 +11,8 @@
                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <p><i class="ti-archive"></i>
                             <a href="{{route('category.show', ['category'=> $category->id])}}">
-                                {{$category->title}} - <small class="small bg-light text-danger">Total posts - {{$category->posts->count()}}</small>
+                                {{$category->title}}
+                                <small class="badge bg-warning text-white float-right">Total posts - {{$category->posts->count()}}</small>
                                 <br/>
                             </a>
                             <br/>
@@ -36,7 +37,7 @@
 
         </div>
         <hr>
-{{--        <div>{{$users->links()}}</div>--}}
+        <div>{{$categories->links()}}</div>
     </main>
 @endsection
 

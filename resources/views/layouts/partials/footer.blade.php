@@ -15,7 +15,7 @@
                 <ul class="m-0 p-0">
                     <li><a href="{{route('post.index')}}">Notícias</a></li>
                     <li><a href="{{route('user.index')}}">Usuários</a></li>
-                    <li><a href="#">Categorias</a></li>
+                    <li><a href="{{route('category.index')}}">Categorias</a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-xs-12 location">
