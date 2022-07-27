@@ -9,7 +9,7 @@
             <div class="row">
                 @foreach($categories as $category)
                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p><i class="ti-user"></i>
+                        <p><i class="ti-archive"></i>
                             <a href="{{route('category.show', ['category'=> $category->id])}}">
                                 {{$category->title}} - <small class="small bg-light text-danger">Total posts - {{$category->posts->count()}}</small>
                                 <br/>
@@ -41,5 +41,26 @@
 @endsection
 
 @push('script')
+    {{-- sweetalert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@endpush
+    <script>
+
+        $('.form-delete').submit(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Deseja realmente deletar?',
+                text: "A categoria será deletada definitivamente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, deletar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    this.submit();
+                }
+            });
+        });
+    </script>

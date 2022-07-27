@@ -58,7 +58,6 @@ class PostController extends Controller
                 ->position('bottom-end')->timerProgressBar();
             return redirect()->route('post.show', compact('post'));
         }catch (\Exception $e){
-            dd('Ocorreu um erro, linha ' .$e->getLine() . " :: " . $e->getMessage());
             flash('Ocorreu um erro, linha ' . $e->getLine() . " :: " . $e->getMessage())->error();
             return redirect()->back();
         }

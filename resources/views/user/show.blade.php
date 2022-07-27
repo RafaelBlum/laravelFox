@@ -137,16 +137,15 @@
     </style>
 @endpush
 @section('content')
+
     <main role="main">
-
-
                 <div class="container">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                                     <div class="profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                                         <!-- Team Thumb-->
-                                        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                        <div class="advisor_thumb"><img src="https://unsplash.it/600/300" alt="imagem" style="border-radius: 10px;">
                                             <!-- Social Info-->
                                             <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
                                         </div>
@@ -188,12 +187,17 @@
                                         <div class="card-body">
                                             <p class="card-text">{{Str::limit($p->content, 70)}}</p>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <a href="{{route('post.show', ['post'=> $p->id])}}" type="button" class="btn btn-sm btn-outline-secondary">Visualizar</a>
-                                                    <a href="{{route('post.edit', ['post'=> $p])}}" type="button" class="btn btn-sm btn-outline-secondary">Editar</a>
+                                                <div class="btn-group mr-2">
+                                                    <a href="{{route('post.show', ['post'=> $p->id])}}" type="button" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                                    <a href="{{route('post.edit', ['post'=> $p])}}" type="button" class="btn btn-sm btn-outline-success">Editar</a>
+                                                    <form class="form-delete" action="{{route('post.destroy', ['post'=> $p])}}" method="POST">
+                                                        @csrf()
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-outline-info">delete</button>
+                                                    </form>
                                                 </div>
                                                 <img class="rounded-circle border-danger" src="/storage/{{$p->cover}}" width=20" height="20" alt="User Image">
-                                                <small class="text-muted">{{date('d/m/Y', strtotime($p->created_at))}}</small>
+                                                <small class="text-muted">{{date('Y', strtotime($p->created_at))}}</small>
                                             </div>
                                         </div>
                                     </div>

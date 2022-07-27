@@ -24,7 +24,7 @@
                                 <div class="card-body">
                                     <p class="card-text"><?= Str::limit($p->content, 90);?></p>
                                     @foreach($p->categorias as $category)
-                                        <a class="badge bg-light text-decoration-none link-light" href="{{route('category.index')}}">{{$category->title}}</a>
+                                        <a class="badge bg-light text-decoration-none link-light" href="{{route('category.show', ["category" => $category->id])}}">{{$category->title}}</a>
                                     @endforeach
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mr-2">

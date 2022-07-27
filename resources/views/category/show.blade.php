@@ -1,63 +1,73 @@
 @extends('layouts.dafault')
 
-@section('title', 'Titulo')
+@section('title', 'Perfil '.  $category->title)
 
 @section('content')
-    <main role="main" class="container mt-5">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-xl-12 col-lg-12">
-                    {{-- POST --}}
-                    <article>
-                        {{-- POST CABEÇALHO --}}
-                        <header class="mb-4">
-                            <h1 class="fw-bolder mb-1">{{$post->title}}</h1>
-                            <div class="text-muted fst-italic mb-2">Postado em {{date('d/m/Y', strtotime($post->created_at))}} por <a href="{{route('user.show', ['user'=> $post->user->id])}}">{{$post->user->name}}</a>  </div>
-                            {{-- CATEGORIES --}}
-                            <a class="badge bg-light text-decoration-none link-light" href="#">{{$post->tags}}</a>
-                            @auth
-                                <a class="badge text-success bg-light text-decoration-none" href="{{route('post.edit', ['post'=> $post])}}">Editar</a>
-                                <a class="badge text-danger bg-light text-decoration-none" href="{{route('post.delete', ['post'=> $post])}}">Deletar</a>
-                            @endauth
-                        </header>
-                        {{-- POST IMAGE --}}
-                        <figure class="mb-4"><img class="img-fluid rounded" src="/storage/{{$post->cover}}" alt="..." /></figure>
-                        {{-- POST CONTENT --}}
-                        <section class="mb-5">
-                            <div class="htmlcontent">
-                                <?= $post->content;?>
+    <main role="main">
+
+
+        <div class="container">
+            <div class="jumbotron-heading">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                            <!-- Team Details-->
+                            <div class="single_advisor_details_info">
+                                <h1>{{$category->title}}</h1>
+                                <p class="designation">{{$category->description}}</p>
+                                <a class="badge text-success bg-white text-decoration-none" href="{{route('category.edit', ['category'=> $category->id])}}">Editar</a>
+                                <a class="badge text-danger bg-white text-decoration-none" href="{{route('category.index')}}">Voltar</a>
                             </div>
-                        </section>
-                    </article>
+                    </div>
+                </div>
+            </div>
 
-                    {{-- COMMENT --}}
-                    <section class="mb-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Coméntarios..."></textarea></form>
 
-                                <div class="d-flex mb-4">
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never
-                                        be private enterprise. Because the space frontier is dangerous, and it's
-                                        expensive, and it has unquantified risks.
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                And under those conditions, you cannot establish a capital-market
-                                                evaluation of that enterprise. You can't get investors.
+
+        </div>
+
+
+        <section class="text-center album">
+            <div class="container">
+                <h5 class="jumbotron-heading">Postagens</h5>
+
+                @if($category->posts->count() > 0)
+                    <div class="row">
+                        @foreach($category->posts as $p)
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top rounded-top" src="/storage/{{$p->cover}}" data-src="{{$p->cover}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text">{{Str::limit($p->content, 70)}}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group mr-2">
+                                                <a href="{{route('post.show', ['post'=> $p->id])}}" type="button" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                                <a href="{{route('post.edit', ['post'=> $p])}}" type="button" class="btn btn-sm btn-outline-success">Editar</a>
+                                                <form class="form-delete" action="{{route('post.destroy', ['post'=> $p])}}" method="POST">
+                                                    @csrf()
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm btn-outline-info">delete</button>
+                                                </form>
                                             </div>
+                                            <img class="rounded-circle border-danger" src="/storage/{{$p->cover}}" width=20" height="20" alt="User Image">
+                                            <small class="text-muted">{{date('Y', strtotime($p->created_at))}}</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">Esta categoria não esta ligada a uma postagem.</p>
                         </div>
-                    </section>
-                </div>
+                    </div>
+
+                @endif
             </div>
+        </section>
+        <hr>
+
     </main>
-
-
 @endsection

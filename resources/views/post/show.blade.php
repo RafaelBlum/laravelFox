@@ -14,7 +14,7 @@
                             <div class="text-muted fst-italic mb-2">Postado em {{date('d/m/Y', strtotime($post->created_at))}} por <a href="{{route('user.show', ['user'=> $post->user->id])}}">{{$post->user->name}}</a>  </div>
                             {{-- CATEGORIES --}}
                             @foreach($post->categorias as $category)
-                                <a class="badge bg-light text-decoration-none link-light" href="#">{{$category->title}}</a>
+                                <a class="badge bg-light text-decoration-none link-light" href="{{route('category.show', ['category'=> $category->id])}}">{{$category->title}}</a>
                             @endforeach
                             @auth
                                 <a class="badge text-success bg-light text-decoration-none" href="{{route('post.edit', ['post'=> $post])}}">Editar</a>

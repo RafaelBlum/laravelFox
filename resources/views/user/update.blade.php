@@ -4,6 +4,9 @@
 @include('layouts.partials.css-form')
 
 @section('content')
+    {{-- CABEÇALHO BREADCRUMB--}}
+    @include('layouts.partials.breadcrumb')
+
     <div class="bg-light p-3">
         <form action="{{isset($user) ? route('user.update', ['user' => $user->id]) : route('user.store')}}" method="post">
             @csrf

@@ -49,6 +49,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdown0501">
                                 <li><a class="dropdown-item" href="{{route('post.create')}}">Criar notícias</a></li>
                                 <li><a class="dropdown-item" href="{{route('user.create')}}">Criar usuários</a></li>
+                                <li><a class="dropdown-item" href="{{route('category.create')}}">Criar categoria</a></li>
                             </ul>
                         </li>
                     </ul>
