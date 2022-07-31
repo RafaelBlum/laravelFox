@@ -2,6 +2,35 @@
 
 @section('title', 'Notícias Fox')
 
+@push('style')
+<style>
+    .postcard__tagbox {
+        display: flex;
+
+        font-size: 14px;
+        margin: 20px 0 0 0;
+        padding: 0;
+        justify-content: center;
+    }
+    .postcard__tagbox .tag__item {
+        display: inline-block;
+        background: rgba(83, 83, 83, 0.4);
+        border-radius: 3px;
+        padding: 2.5px 10px;
+        margin: 0 5px 5px 0;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.3s;
+    }
+    .postcard__tagbox .tag__item:hover {
+         background: rgba(83, 83, 83, 0.8);
+     }
+    .postcard .postcard__tagbox .blue.play:hover {
+        background: #0076bd;
+    }
+</style>
+    @endpush
+
 @section('content')
     <main role="main">
 
@@ -36,9 +65,21 @@
                                                 <button class="btn btn-sm btn-outline-info">delete</button>
                                             </form>
                                         </div>
-                                        <img class="rounded-circle border-danger" src="/storage/{{$p->cover}}" width=20" height="20" alt="User Image">
-                                        <small class="text-muted">{{date('Y', strtotime($p->created_at))}}</small>
+
                                     </div>
+                                    <ul class="postcard__tagbox">
+                                        <li class="tag__item">
+                                            <a href="{{route('post.show', ['post'=> $p->id])}}"><i class="ti-timer mr-2"></i> Ver</a>
+                                        </li>
+                                        <li class="tag__item">
+                                            <a href="{{route('post.edit', ['post'=> $p])}}"><i class="ti-linkedin mr-2"></i> Editar</a>
+                                        </li>
+                                        <form class="form-delete" action="{{route('post.destroy', ['post'=> $p])}}" method="POST">
+                                            @csrf()
+                                            @method('DELETE')
+                                            <button type="submit"><i class="ti-linkedin mr-2"></i> delete</button>
+                                        </form>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
