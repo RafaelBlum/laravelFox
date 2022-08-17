@@ -1,7 +1,69 @@
 @extends('layouts.dafault')
 
 @section('title', 'Home - LaraFox')
+@push('style')
+    <style>
+        /* =========== TOOLTIP ==================*/
+        .tooltip-msg{
+            position: relative;
+            top: 0;
+            z-index: 1;
+            background: #fff;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 25px;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+            transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
 
+        .msg a{
+            text-decoration: none;
+        }
+
+        .icon:hover .tooltip-msg{
+            top: -10px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .icon .tooltip-msg:before{
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            background: #fff;
+            left: 50%;
+            bottom: -6px;
+            transform: translateX(-50%) rotate(45deg);
+            transition: 0.4s cubic-bezier(95, 57, 248, 0.49);
+            color: red;
+
+        }
+
+        .icon:hover .tooltip-msg{
+            text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+        }
+
+        .msg:hover .tooltip-msg,
+        .msg:hover .tooltip-msg:before{
+            background: rgba(95, 57, 248, 0.49);
+        }
+
+        .icon .tooltip-msg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon .tooltip-msg i{
+            margin-right: 5px;
+            color: #FFFFFF;
+        }
+    </style>
+@endpush
 @section('content')
         <main role="main" class="container">
             <div class="row">
@@ -10,7 +72,7 @@
                     <article>
                         {{-- POST IMAGE --}}
                         <figure class="mb-4">
-                            <img style="width: 100%;" class="img-fluid rounded" src="/storage/{{$last_post->cover}}" alt="Cover last post" />
+                            <img style="width: 100%; height: 400px;" class="img-fluid rounded" src="/storage/{{$last_post->cover}}" alt="Cover last post" />
                         </figure>
                         {{-- POST CABEÇALHO --}}
                         <header class="mb-4">
@@ -58,7 +120,15 @@
             @endforeach
         </div>
 
-        <h3 class="p-3 mb-4 font-italic border-top text-center">
-            <a href="{{route('post.index')}}">Ver mais...</a>
+
+
+        <h3 class="p-3 mb-4 font-italic border-top text-center block icon msg">
+
+            <a href="{{route('post.index')}}">
+                <div class="tooltip-msg">
+                    <i class="fa fa-share-alt"></i> Veja mais
+                </div>
+                <i class="ti ti-more-alt text-lg-center"></i>
+            </a>
         </h3>
 @endsection
