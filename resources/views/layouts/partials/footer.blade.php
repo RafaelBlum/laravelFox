@@ -4,9 +4,11 @@
             <div class="col-lg-5 col-xs-12 about-company">
                 <img src="{{asset('themes/images/config/studio2.png')}}" alt="fox_logo" width="190">
                 <p class="pr-5 text-white-50">{{CONF_DESCRIPTION}}</p>
-                <p>
-                    <a href="#"><i class="ti-facebook"> </i></a>
-                    <a href="#"><i class="ti-linkedin"> </i></a>
+                <p class="social_midias">
+                    <a href="{{CONF_URL_LINKEDIN}}"><i class="ti-linkedin"> </i></a>
+                    <a href="{{CONF_URL_TWITTER}}"><i class="ti-twitter"> </i></a>
+                    <a href="{{CONF_URL_GITHUB}}"><i class="ti-github"> </i></a>
+                    <a href="{{CONF_URL_INSTAGRAM}}"><i class="ti-instagram"> </i></a>
                 </p>
 
             </div>

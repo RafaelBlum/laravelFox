@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', isset($post) ? 'LaraFox - Editar '. $post->title : 'LaraFox - Criar notícia')
+@section('title', isset($post) ? 'Editar '. $post->title : 'Criar notícia')
 
 @push('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>

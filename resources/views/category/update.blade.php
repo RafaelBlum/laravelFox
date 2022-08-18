@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', isset($category) ? 'LaraFox - Editar ' . $category->title : 'LaraFox - Criar categoria')
+@section('title', isset($category) ? 'Editar ' . $category->title : 'Criar categoria')
 
 @section('content')
     {{-- CABEÇALHO BREADCRUMB--}}

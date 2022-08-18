@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', 'Lista de usuários')
+@section('title', 'Lista de categorias')
 
 @section('content')
     <main role="main">

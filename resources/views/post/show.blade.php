@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', 'LaraFox - '.$post->title)
+@section('title', $post->title)
 
 @section('content')
     <main role="main" class="container mt-5">

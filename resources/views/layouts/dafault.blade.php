@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('themes/plugins/iziToast/css/iziToast.css')}}">
 
     @stack('style')
-    <title>@yield('title', 'LaraFox')</title>
+    <title>@yield('title', CONF_SITE_NAME)</title>
 </head>
 <body>
     <!-- ===================== # NAVBAR # ===================== -->

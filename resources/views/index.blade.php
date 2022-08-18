@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', 'Home - LaraFox')
+@section('title', "Home - " . CONF_SITE_NAME)
 @push('style')
     <style>
         /* =========== TOOLTIP ==================*/

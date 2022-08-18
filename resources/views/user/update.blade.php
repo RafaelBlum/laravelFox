@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', isset($user) ? 'LaraFox - Editar ' . $user->name : 'LaraFox - Criar usuário')
+@section('title', isset($user) ? 'Editar ' . $user->name : 'Criar usuário')
 @include('layouts.partials.css-form')
 
 @section('content')

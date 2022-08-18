@@ -1,6 +1,6 @@
 @extends('layouts.dafault')
 
-@section('title', 'Notícias Fox')
+@section('title', 'Notícias - ' . CONF_SITE_NAME)
 
 @push('style')
 <style>

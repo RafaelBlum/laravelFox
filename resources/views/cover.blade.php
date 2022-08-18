@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('themes/default.css')}}">
     <link rel="stylesheet" href="{{asset('themes/css/cover-style.css')}}">
 
-    <title>@yield('title', 'LaraFox')</title>
+    <title>@yield('title', CONF_SITE_NAME)</title>
 </head>
 <body class="text-center">
     <!-- ===================== # NAVBAR # ===================== -->

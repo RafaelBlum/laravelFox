@@ -3,7 +3,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{route('home')}}">
-            <img src="{{asset('themes/images/config/studio2.png')}}" alt="fox_logo">
+            <img src="{{asset('themes/images/config/studio2.png')}}" alt="{{CONF_SITE_NAME}}">
         </a>
 
 
