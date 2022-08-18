@@ -9,5 +9,6 @@ define("CONF_URL_GITHUB", "https://github.com/RafaelBlum");
 define("CONF_URL_TWITTER", "https://twitter.com/universocode");
 define("CONF_URL_INSTAGRAM", "https://www.instagram.com/universo_code");
 define("CONF_URL_INSTAGRAM_PESSOAL", "https://www.instagram.com/rafablum_");
+define("CONF_URL_YOUTUBE", "https://www.youtube.com/channel/UCMvtn8HZ12Ud-sdkY5KzTog");
 define("CONF_URL_LINKEDIN", "https://www.linkedin.com/in/rafael-blum-237133114");
 

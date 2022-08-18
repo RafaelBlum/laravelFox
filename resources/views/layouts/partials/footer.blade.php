@@ -9,6 +9,7 @@
                     <a href="{{CONF_URL_TWITTER}}"><i class="ti-twitter"> </i></a>
                     <a href="{{CONF_URL_GITHUB}}"><i class="ti-github"> </i></a>
                     <a href="{{CONF_URL_INSTAGRAM}}"><i class="ti-instagram"> </i></a>
+                    <a href="{{CONF_URL_YOUTUBE}}"><i class="ti-youtube"> </i></a>
                 </p>
 
             </div>
